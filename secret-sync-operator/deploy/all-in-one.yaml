@@ -5,9 +5,6 @@ metadata:
   name: secret-sync-operator
   namespace: default
 imagePullSecrets:
-- name: bluemix-default-secret
-- name: bluemix-default-secret-regional
-- name: bluemix-default-secret-international
 - name: default-icr-io
 - name: default-us-icr-io
 - name: default-uk-icr-io
@@ -58,13 +55,13 @@ spec:
       serviceAccountName: secret-sync-operator
       containers:
         - name: secret-sync-operator
-          image: <REPLACE WITH YOUR BUILT IMAGE NAME>
+          image: us.icr.io/xcomp-gold/secret-sync-operator:utils-r1
           command:
           - secret-sync-operator
           imagePullPolicy: Always
           env:
             - name: WATCH_NAMESPACE
-              value: ""
+              value: "default"
             - name: OPERATOR_NAME
               value: "secret-sync-operator"
             - name: POD_NAME
