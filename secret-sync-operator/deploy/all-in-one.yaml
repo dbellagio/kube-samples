@@ -55,7 +55,7 @@ spec:
       serviceAccountName: secret-sync-operator
       containers:
         - name: secret-sync-operator
-          image: us.icr.io/xcomp-gold/secret-sync-operator:utils-r1
+          image: us.icr.io/xcomp-gold/secret-sync-operator:utils-r2
           command:
           - secret-sync-operator
           imagePullPolicy: Always
