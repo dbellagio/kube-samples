@@ -1,4 +1,18 @@
 #!/bin/bash
+
+#   these annotations need to be on the cluster default secret, adjust cluster
+#   secret and namespace as needed
+#
+#      "secretsync.ibm.com/replicate": "true",
+#      "secretsync.ibm.com/replicate-to": "dev/inst-musc-dev-qa,qa/inst-musc-dev-qa"
+
+# sometimes I've noticed the secrets losing their annotation, perhaps when they are updated by
+# AppID, IKS, or whoever.....  If so, then we need to add these commands back into the mix
+
+# example for musc, only the secret in the default namespace needs the annotation
+
+# kubectl annotate secrets inst-musc-dev-qa secretsync.ibm.com/replicate='true' secretsync.ibm.com/replicate-to='dev/inst-musc-dev-qa,qa/inst-musc-dev-qa'
+
 ibmcloud target -g "Dev Resources"
 
 ibmcloud ks cluster config bl5ob85d0rdfkj3mgn80

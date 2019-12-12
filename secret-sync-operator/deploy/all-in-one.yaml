@@ -44,6 +44,7 @@ metadata:
   namespace: default
 spec:
   replicas: 1
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       name: secret-sync-operator
@@ -55,7 +56,7 @@ spec:
       serviceAccountName: secret-sync-operator
       containers:
         - name: secret-sync-operator
-          image: us.icr.io/xcomp-gold/secret-sync-operator:utils-r2
+          image: us.icr.io/xcomp-gold/secret-sync-operator:utils-r3
           command:
           - secret-sync-operator
           imagePullPolicy: Always

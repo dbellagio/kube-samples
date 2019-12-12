@@ -1,3 +1,5 @@
+# run this locally with Docker.  To ensure you get the latest minimal image,
+# clean up all the previous images locally first of ubi-minimal
 FROM golang
 ENV RELEASE_VERSION v0.8.0
 ENV GOPATH /go
